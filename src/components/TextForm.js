@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
 export default function TextForm(props) {
+
+
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -34,7 +36,7 @@ export default function TextForm(props) {
             className="form-control"
             placeholder="enter text here"
             style={{
-              backgroundColor: props.mode === "dark" ? "darkgray" : "white",
+              backgroundColor: props.mode === "dark" ? "#142d52" : "white",
               color: props.mode === "dark" ? "white" : "black",
             }}
             value={text}
@@ -43,18 +45,21 @@ export default function TextForm(props) {
             rows="8"
           ></textarea>
           <button
+          disabled={text.length===0}
             className="btn btn-primary mx-1 my-2"
             onClick={handleUpperClick}
           >
             Convert to UpperCase
           </button>
           <button
+            disabled={text.length===0}
             className="btn btn-primary mx-1 my-2"
             onClick={handleLowerClick}
           >
             Convert to LowerCase
           </button>
           <button
+            disabled={text.length===0}
             className="btn btn-primary mx-1 my-2"
             onClick={handleClearClick}
           >
@@ -69,11 +74,11 @@ export default function TextForm(props) {
       >
         <h2> Your text summary</h2>
         <p>
-          your text has {text.split(" ").length} words and {text.length}{" "}
+          Your text has {text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length}{" "}
           characters
         </p>
         <h2>Preview</h2>
-        <p>{text.length > 0 ? text : "enter some text to preview it here"}</p>
+        <p>{text.length > 0 ? text : "Nothing to Preview"}</p>
       </div>
     </>
   );

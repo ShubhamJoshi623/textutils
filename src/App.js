@@ -53,8 +53,8 @@ setAlert(null);
       <div className="container my-3">
       {/* <TextForm heading="Enter your Text" mode={mode} showAlert={showAlert} /> */} 
            <Routes>
-          <Route exact path="/about" element={<About/>}/>
-          <Route exact path="/" element={ <TextForm heading="Enter your Text" mode={mode} showAlert={showAlert} />}/>
+          <Route exact path="/about" element={<About mode={mode}/>}/>
+          <Route exact path="/" element={ <TextForm heading="TextUtils- Word Counter | character Counter" mode={mode} showAlert={showAlert} />}/>
         </Routes>
       </div>
       </Router>
